@@ -1,0 +1,9 @@
+{
+    "compilerOptions": { //npx tsc 설정
+        "strict": true,
+        "lib": ["ES2015","es2016","es2017","es2018","es2019","es2020"],
+        "moduleResolution": "node",
+        "typeRoots": ["./types"] //타입설정
+        // "esModuleInterop": true * as 안써도됨
+    }
+}

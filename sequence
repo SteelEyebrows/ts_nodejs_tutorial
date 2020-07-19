@@ -1,0 +1,21 @@
+npm init
+npm i typescript
+tsconfig.js 만들기
+npm i @type/node
+index.ts 작성
+npm i -d ts-node //자바스크립트로 변환을 내부적으로 한뒤 인코딩 (개발할때만) 베포시는 npx tsc --traceResolution 
+npm i -d nodemon
+npx ts-node index.ts // 글로벌 설치를 막기위해 npx
+npm i morgan cors cookie-parser express-session dotenv passport hpp helmet
+npm i @types/morgan @types/cors @types/cookie-parser @types/express-session @types/dotenv @types/passport @types/hpp @types/helmet
+npm i passport-local @types/passport-local @types/bcrypt
+@types 와 일반버전이 일치하는지 확인
+
+index.ts에 미들웨어 장착
+npm i sequelize mysql2 sequelize-cli
+npx sequelize init
+config폴더의 config 변경
+npx sequelize db:create
+config폴더 config js에서 ts로 변경
+models폴더 index.js를 ts로 변경 
+model들 추가 (user)
