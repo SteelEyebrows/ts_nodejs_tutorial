@@ -9,11 +9,20 @@ import * as hpp from 'hpp';
 import * as helmet from 'helmet';
 import {Application,Request, Response,NextFunction} from 'express';
 
+import {sequelize} from './models';
+import userRouter from './routes/user';
+import postRouter from './routes/post';
+
 const app:Application = express();
 const prod:boolean = process.env.NODE_ENV ==='production'; //개발용이면 port 3065
 
 app.set('port',prod?process.env.PORT:3065); // express 내의 변수를 설정
-
+sequelize.sync({force:false}) // force true면 시작할때마다 테이블 초기화
+    .then(()=>{
+        console.log('데이터베이스 연결성공')
+    }).catch((err:Error)=>{
+        console.log(err)
+    });
 //미들웨어
 if(prod){
     app.use(hpp());
@@ -31,9 +40,9 @@ if(prod){
     }))
 }
 
-app.use('/',express.static('uploads'));
+app.use('/',express.static('uploads'));//정적인문서 집어넣는곳
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({extended:true}));//객체 안에 객체를 파싱할 수 있게하려면 true.
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(expressSession({
     resave:false,
@@ -48,7 +57,8 @@ app.use(expressSession({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.use('/user',userRouter);
+app.use('/post',postRouter);
 //
 
 app.get('/',(req:Request,res:Response,next:NextFunction)=>{
@@ -58,3 +68,5 @@ app.get('/',(req:Request,res:Response,next:NextFunction)=>{
 app.listen(app.get('port'),()=>{
     console.log('success')
 });
+
+

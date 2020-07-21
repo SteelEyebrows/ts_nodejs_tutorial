@@ -19,3 +19,14 @@ npx sequelize db:create
 config폴더 config js에서 ts로 변경
 models폴더 index.js를 ts로 변경 
 model들 추가 (user)
+index.ts에서 sequelize sync
+
+passport 폴더생성하여 로그인작성
+
+타입우선순위를 설정하기위해 http://sequelize.org/v5/manual/typescript.html 참조하여 npm i @types/bluebird @types/validator 
+
+routes 설정
+models에 관계선언 (associate)
+
+routes/post 작성 npm i multer @types/multer multer-s3 @types/multer-s3 aws-sdk @types/aws-sdk
+npm rm  @types/aws-sdk

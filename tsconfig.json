@@ -3,7 +3,7 @@
         "strict": true,
         "lib": ["ES2015","es2016","es2017","es2018","es2019","es2020"],
         "moduleResolution": "node",
-        "typeRoots": ["./types"] //타입설정
+        "typeRoots": ["./types"] //타입설정 import한 애들과 이 폴더안에 있는 타입들만 로딩/ []라고 선언하면 import 한애들만 가져옴
         // "esModuleInterop": true * as 안써도됨
     }
 }
