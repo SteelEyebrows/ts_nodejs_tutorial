@@ -28,7 +28,7 @@
     "@types/passport": "^1.0.4",
     "@types/passport-local": "^1.0.33",
     "@types/validator": "^13.1.0",
-    "aws-sdk": "^2.716.0",
+    "aws-sdk": "^2.814.0",
     "cookie-parser": "^1.4.5",
     "cookies-parser": "^1.2.0",
     "cors": "^2.8.5",
